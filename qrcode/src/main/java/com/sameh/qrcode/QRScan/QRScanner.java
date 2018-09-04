@@ -97,6 +97,8 @@ public class QRScanner {
                             Vibrator vibrator = (Vibrator) activity.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
                             txtResult.setText(barcode.valueAt(0).displayValue);
+                            Completed completed = QRScanner.this.completed;
+                            completed.onComplete(barcode.valueAt(0).displayValue);
                         }
                     });
                 }
