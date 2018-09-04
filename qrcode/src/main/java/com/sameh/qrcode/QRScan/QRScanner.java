@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.CameraSource;
@@ -27,6 +29,8 @@ public class QRScanner {
     private int RequestCameraPermissionID;
     private String data = null;
 
+    private Completed completed;
+
     public QRScanner(Activity activity, SurfaceView cameraPreview, int requestCameraPermissionID) {
         this.activity = activity;
         this.cameraPreview = cameraPreview;
@@ -34,8 +38,8 @@ public class QRScanner {
     }
 
     public void Scan(Completed completed){
+        this.completed = completed;
         initialize();
-        completed.onComplete(this.data);
     }
 
     private void initialize(){
@@ -84,14 +88,18 @@ public class QRScanner {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcode = detections.getDetectedItems();
                 if (barcode.size() != 0){
-                    new Runnable(){
+                    new View(activity).post(new Runnable(){
                         @Override
                         public void run() {
                             Vibrator vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
-                            data = barcode.valueAt(0).displayValue;
+                            String s = barcode.valueAt(0).displayValue;
+                            Log.d("Sameh",s);
+                            Completed completed = QRScanner.this.completed;
+                            completed.onComplete(s);
+                            Toast.makeText(activity, s, Toast.LENGTH_SHORT).show();
                         }
-                    };
+                    });
                 }
             }
         });

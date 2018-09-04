@@ -14,11 +14,11 @@ import com.sameh.qrcode.QRScan.QRScanner;
 public class MainActivity extends AppCompatActivity {
 
     /*QRCreator qrCreator;
-    ImageView imageView;
+    ImageView imageView;*/
 
     QRScanner qrScanner;
     SurfaceView surfaceView;
-    TextView textView;*/
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         /*qrCreator = new QRCreator(this);
         imageView = findViewById(R.id.image);*/
 
-        /*surfaceView = findViewById(R.id.scan);
+        surfaceView = findViewById(R.id.scan);
         textView = findViewById(R.id.text);
-        qrScanner = new QRScanner(this,surfaceView,5000);*/
+        qrScanner = new QRScanner(this,surfaceView,5000);
     }
 
-    /*@Override
+    @Override
     protected void onResume() {
         super.onResume();
         qrScanner.Scan(new QRScanner.Completed() {
@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(data);
             }
         });
-    }*/
+    }
 
-    /*@Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         qrScanner.onRequestCameraPermission(requestCode, permissions, grantResults);
-    }*/
+    }
 
     /*@Override
     protected void onResume() {

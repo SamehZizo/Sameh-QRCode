@@ -14,18 +14,18 @@
         <!--android:layout_width="300dp"-->
         <!--android:layout_height="300dp" />-->
 
-    <!--<SurfaceView-->
-        <!--android:id="@+id/scan"-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="300dp" />-->
+    <SurfaceView
+        android:id="@+id/scan"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/text"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:textSize="20sp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="welcome"/>-->
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="welcome"/>
 
 </LinearLayout>
