@@ -91,7 +91,7 @@ public class QRScanner {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcode = detections.getDetectedItems();
                 if (barcode.size() != 0){
-                    txtResult.post(new Runnable() {
+                    /*txtResult.post(new Runnable() {
                         @Override
                         public void run() {
                             Vibrator vibrator = (Vibrator) activity.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -100,7 +100,17 @@ public class QRScanner {
                             Completed completed = QRScanner.this.completed;
                             completed.onComplete(barcode.valueAt(0).displayValue);
                         }
-                    });
+                    });*/
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            super.run();
+                            Vibrator vibrator = (Vibrator) activity.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(1000);
+                        }
+                    }.start();
+                    Completed completed = QRScanner.this.completed;
+                    completed.onComplete(barcode.valueAt(0).displayValue);
                 }
             }
         });

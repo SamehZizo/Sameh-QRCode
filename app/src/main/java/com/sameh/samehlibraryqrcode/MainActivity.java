@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         /*qrCreator = new QRCreator(this);
         imageView = findViewById(R.id.image);*/
 
-        surfaceView = findViewById(R.id.scan);
+        /*surfaceView = findViewById(R.id.scan);
         textView = findViewById(R.id.text);
-        qrScanner = new QRScanner(this,surfaceView,5000);
+        qrScanner = new QRScanner(this,surfaceView,5000);*/
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         super.onResume();
         qrScanner.Scan(new QRScanner.Completed() {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         qrScanner.onRequestCameraPermission(requestCode, permissions, grantResults);
-    }
+    }*/
 
     /*@Override
     protected void onResume() {
